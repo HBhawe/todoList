@@ -1,6 +1,5 @@
 /* styles.css */
 body {
-  text-align: center;
   font-family:
     system-ui,
     -apple-system,
@@ -15,11 +14,8 @@ body {
     sans-serif;
 }
 
-ul {
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
+h1 {
+  text-align: center;
 }
 
 .food,
@@ -29,4 +25,10 @@ ul {
   padding: 0;
   justify-content: center;
   align-items: center;
+}
+
+#content {
+  display: grid;
+  justify-content: center;
+  text-align: center;
 }
