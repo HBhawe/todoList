@@ -19,11 +19,9 @@ export const saveToDotoLocalStorage = function (target, toDoText, toDoArray) {
   toDo.date = formattedDate;
   toDo.text = toDoText;
   console.log(target, toDo);
-  if (typeof toDoArray[target] === "undefined") {
-    toDoArray[target] = new Array();
-  }
   toDoArray[target].push(toDo);
   console.log(toDoArray);
-  //   localStorage.setItem(`todo.${target}`, JSON.stringify(toDoArray));
-  //   console.log(JSON.stringify(localStorage));
+  localStorage.setItem("ToDo", JSON.stringify(toDoArray));
+  //   localStorage.ToDo[target] = JSON.stringify(toDoArray);
+  console.log(localStorage);
 };

@@ -20,14 +20,14 @@ export const renderToDoList = function (toDoText, container) {
  * generated markup for each todo item stored in the local storage.
  */
 export const renderLocalStorage = function (container) {
-  const toDos = JSON.parse(localStorage.getItem("todo"));
-  if (toDos !== null) {
-    toDos.forEach((todo) => {
-      const text = todo.text;
-      const markup = `<li>${text}</li>`;
-      container.insertAdjacentHTML("beforeend", markup);
-    });
-  }
+  //   const toDos = localStorage.getItem("ToDo");
+  //   if (toDos !== null) {
+  //     toDos.forEach((todo) => {
+  //       const text = todo.text;
+  //       const markup = `<li>${text}</li>`;
+  //       container.insertAdjacentHTML("beforeend", markup);
+  //     });
+  //   }
 };
 
 /**
