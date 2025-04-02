@@ -39,7 +39,7 @@ export const renderLocalStorage = function (container) {
  * To-Do item. It is used to select the specific element in the DOM where the To-Do item will be
  * appended.
  */
-export const renderToDOinProject = function (toDotext, target) {
+export const renderToDoInProject = function (toDotext, target) {
   const projectList = document.querySelector(`#${target}`);
   const markup = `<li>${toDotext}</li>`;
   projectList.insertAdjacentHTML("beforeend", markup);

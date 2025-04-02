@@ -30,10 +30,16 @@ h1 {
 #content {
   display: grid;
   justify-content: center;
-  text-align: center;
+  /* text-align: center; */
+  grid-template-columns: repeat(4, 1fr);
   gap: 5px;
 }
 
 .hidden {
   display: none;
+}
+
+button {
+  margin: 5px;
+  padding: 2px;
 }

@@ -9,7 +9,7 @@
     <header>
       <h1>ToDo list</h1>
     </header>
-    <button class="clear">Clear local storage</button>
+    <button class="clear">Clear local storage and reload</button>
     <dialog id="projectModal">
       <form action="" id="projectName">
         <label for="projectName">Project Name:</label>
@@ -26,10 +26,8 @@
         <button type="reset" class="cancel-modal">Cancel</button>
       </form>
     </dialog>
+    <div><button class="modal-project">New project</button></div>
     <div id="content">
-      <div><button class="new-project">New project</button></div>
-      <div><button class="modal-project">New project modal</button></div>
-      <ul class="toDoList"></ul>
       <div class="hidden project">
         <h3></h3>
         <button class="new-to-do" data-project="hidden">New To Do</button>
