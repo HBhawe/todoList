@@ -3,30 +3,72 @@
 // IMPORTS
 import "./styles.css";
 import { createToDo } from "./createToDo";
-import { renderToDoList, renderLocalStorage } from "./renderToDo";
+import {
+  renderToDoList,
+  renderLocalStorage,
+  renderToDOinProject,
+} from "./renderToDo";
 import { saveToDotoLocalStorage } from "./saveToLocalStorage";
+import { createProject, promptProject } from "./createProject";
 
 // QUERY SELECTOR
 const toDoList = document.querySelector(".toDoList");
-const btnToDo = document.querySelector(".btn-todo");
+const newProject = document.querySelector(".new-project");
+const contentDiv = document.querySelector("#content");
+const clearStorage = document.querySelector(".clear");
+const modalProject = document.querySelector("#projectModal");
+const modalBtn = document.querySelector(".modal-project");
+const closeModalBtn = document.querySelector(".cancel-modal");
+
+// SETUP
+// dummy variable to get the data from the local storage
+var dummy = JSON.parse(localStorage.getItem("todo"));
+// if the dummy variable is null, we create a new Array, otherwise we use the dummy variable
+const toDos = dummy !== null ? dummy : new Object();
 
 // FUNCTIONS
 
-// dummy variable to get the data from the local storage
-var dummy = JSON.parse(localStorage.getItem("todo"));
+// create a project
+const createProjectFn = function () {
+  const projectName = promptProject();
+  createProject(projectName, contentDiv);
+};
 
-// if the dummy variable is null, we create a new Array, otherwise we use the dummy variable
-const toDos = dummy !== null ? dummy : new Array();
+// for dev purposes only
+const clearLocalStorage = function () {
+  localStorage.clear();
+  console.log(localStorage);
+};
 
-const addToDo = function () {
-  const toDoText = createToDo();
-  if (toDoText === "" || toDoText == "null") {
-  } else if (toDoText) {
-    renderToDoList(toDoText, toDoList);
-    saveToDotoLocalStorage(toDoText, toDos);
-  }
+// display the modal
+const showModal = function () {
+  modalProject.showModal();
+};
+
+// close the modal
+const closeModal = function () {
+  modalProject.close();
 };
 
 // EVENT LISTENERS
-btnToDo.addEventListener("click", addToDo);
 window.addEventListener("load", renderLocalStorage(toDoList));
+newProject.addEventListener("click", createProjectFn);
+
+// using event bubbling to add event listeners to dynamically created elements
+contentDiv.addEventListener("click", (e) => {
+  const project = e.target.dataset.project;
+  console.log(project);
+  if (project) {
+    const toDoText = createToDo();
+    if (toDoText === "" || toDoText == "null" || !isNaN(toDoText)) {
+    } else if (toDoText) {
+      const todoString = String(toDoText);
+      renderToDOinProject(todoString, project);
+      saveToDotoLocalStorage(project, todoString, toDos);
+    }
+  }
+});
+
+clearStorage.addEventListener("click", clearLocalStorage);
+modalBtn.addEventListener("click", showModal);
+closeModalBtn.addEventListener("click", closeModal);

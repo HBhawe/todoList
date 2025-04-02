@@ -31,4 +31,9 @@ h1 {
   display: grid;
   justify-content: center;
   text-align: center;
+  gap: 5px;
+}
+
+.hidden {
+  display: none;
 }

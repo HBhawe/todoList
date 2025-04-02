@@ -1,11 +1,17 @@
 import { format } from "date-fns";
 
-export const saveToDotoLocalStorage = function (toDoText, toDoArray) {
+export const saveToDotoLocalStorage = function (target, toDoText, toDoArray) {
   var date = new Date();
   const formattedDate = format(date, "yyyy-MM-dd");
   const toDo = new Object();
   toDo.date = formattedDate;
   toDo.text = toDoText;
-  toDoArray.push(toDo);
-  localStorage.setItem("todo", JSON.stringify(toDoArray));
+  console.log(target, toDo);
+  if (typeof toDoArray[target] === "undefined") {
+    toDoArray[target] = new Array();
+  }
+  toDoArray[target].push(toDo);
+  console.log(toDoArray);
+  localStorage.setItem(target, JSON.stringify(toDoArray));
+  console.log(JSON.stringify(localStorage));
 };
