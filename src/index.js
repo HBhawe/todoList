@@ -2,14 +2,14 @@
 
 // IMPORTS
 import "./styles.css";
-import { createToDo } from "./createToDo";
+import { createToDo } from "./createToDo.js";
 import {
   renderToDoList,
   renderLocalStorage,
   renderToDOinProject,
-} from "./renderToDo";
-import { saveToDotoLocalStorage } from "./saveToLocalStorage";
-import { createProject, promptProject } from "./createProject";
+} from "./renderToDo.js";
+import { saveToDotoLocalStorage } from "./saveToLocalStorage.js";
+import { createProject, promptProject } from "./createProject.js";
 
 // QUERY SELECTOR
 const toDoList = document.querySelector(".toDoList");

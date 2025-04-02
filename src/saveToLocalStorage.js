@@ -12,6 +12,6 @@ export const saveToDotoLocalStorage = function (target, toDoText, toDoArray) {
   }
   toDoArray[target].push(toDo);
   console.log(toDoArray);
-  localStorage.setItem(target, JSON.stringify(toDoArray));
-  console.log(JSON.stringify(localStorage));
+  //   localStorage.setItem(`todo.${target}`, JSON.stringify(toDoArray));
+  //   console.log(JSON.stringify(localStorage));
 };
